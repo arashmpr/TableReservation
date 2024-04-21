@@ -25,6 +25,6 @@ public class CommandHandler {
     }
 
     private void add_user_handler() {
-        this.ctx.getUserManager().addUser("client", "hamid", "1235", "arash@ut.ac.ir", "city");
+        this.ctx.getUserManager().addUser("client", "hamid", "1235", "arashmdp@gmail.com", "city iran and country fuck me");
     }
 }
