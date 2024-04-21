@@ -4,7 +4,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        TableReservation tableReservation = new TableReservation();
+        Context ctx = new Context();
+        TableReservation tableReservation = new TableReservation(ctx);
         tableReservation.run();
     }
 }

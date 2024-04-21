@@ -3,10 +3,16 @@ package com.practice.app;
 import java.util.Scanner;
 
 public class TableReservation {
-    private UserManager userManager = new UserManager();
 
-    private boolean isRunning = true;
-    private Scanner scanner = new Scanner(System.in);
+    private boolean isRunning;
+    private Context ctx;
+    private Scanner scanner;
+
+    public TableReservation(Context ctx) {
+        this.ctx = ctx;
+        this.isRunning = true;
+        this.scanner = new Scanner(System.in);
+    }
 
     public void run() {
         System.out.println("Welcome!");
@@ -19,8 +25,8 @@ public class TableReservation {
                 isRunning = false;
             }
             else {
-                CommandHandler commandHandler = new CommandHandler(cmd, userManager);
-                commandHandler.process_command();
+                CommandHandler commandHandler = new CommandHandler(ctx, cmd);
+                commandHandler.handle_command();
             }
         }
     }
