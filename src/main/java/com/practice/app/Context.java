@@ -7,8 +7,10 @@ import lombok.Setter;
 @Setter
 public class Context {
     private UserManager userManager;
+    private RestaurantManager restaurantManager;
 
     public Context() {
         this.userManager = new UserManager();
+        this.restaurantManager = new RestaurantManager();
     }
 }
