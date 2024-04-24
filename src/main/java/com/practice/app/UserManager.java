@@ -29,4 +29,8 @@ public class UserManager {
             System.out.println("Something went wrong for adding user.");
         }
     }
+
+    public List<User> getUsers() {
+        return users;
+    }
 }
