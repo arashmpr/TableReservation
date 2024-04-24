@@ -10,8 +10,7 @@ public class RestaurantManager {
         this.restaurants = new ArrayList<>();
     }
 
-    public void addRestaurant(String name, String managerUsername, String type, int startTime, int endTime, String description, String address) {
-        Restaurant restaurant = new Restaurant(name, managerUsername, type, startTime, endTime, description, address);
+    public void addRestaurant(Restaurant restaurant) {
         restaurants.add(restaurant);
         System.out.println(restaurants.size() + " restaurant is added to this, happy");
     }

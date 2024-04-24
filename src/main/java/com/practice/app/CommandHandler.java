@@ -45,6 +45,7 @@ public class CommandHandler {
     }
 
     private void add_restaurant_handler() {
-        this.ctx.getRestaurantManager().addRestaurant("", "", "", 0, 0, "", "");
+        Restaurant restaurant = gson.fromJson(jsonData, Restaurant.class);
+        this.ctx.getRestaurantManager().addRestaurant(restaurant);
     }
 }
