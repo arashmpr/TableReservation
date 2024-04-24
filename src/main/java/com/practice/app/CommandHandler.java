@@ -40,8 +40,12 @@ public class CommandHandler {
     }
 
     private void add_user_handler() {
-        User user = gson.fromJson(jsonData, User.class);
-        this.ctx.getUserManager().addUser(user);
+        try {
+            User user = gson.fromJson(jsonData, User.class);
+            this.ctx.getUserManager().addUser(user);
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void add_restaurant_handler() {
