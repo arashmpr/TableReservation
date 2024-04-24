@@ -1,66 +1,66 @@
 package com.practice.app;
 
+import com.practice.app.exceptions.*;
+
+import java.util.HashSet;
+
 public class UserValidator {
     private User user;
 
-    private boolean isValid;
-
-    private boolean isRoleValid;
-    private boolean isUsernameValid;
-    private boolean isEmailValid;
-    private boolean isAddressValid;
-
     public UserValidator(User user) {
         this.user = user;
-        this.isValid = false;
-        this.isRoleValid = false;
-        this.isUsernameValid = false;
-        this.isEmailValid = false;
-        this.isAddressValid = false;
-
-        validate();
-
-        if (isRoleValid && isUsernameValid && isEmailValid && isAddressValid) {
-            isValid = true;
-        } else {
-            isValid = false;
-        }
     }
 
-    public boolean isValid() {
-        return isValid;
-    }
-
-    private void validate() {
+    public void validate(HashSet<String> usernames, HashSet<String> emails) throws Exception {
         validateRole();
         validateUsername();
         validateEmail();
-        validateAddress();
+        validateUserDoesNotExist(usernames);
+        validateEmailDoesNotExist(emails);
+//        validateAddress();
     }
 
-    private void validateRole() {
+    private void validateRole() throws Exception {
         String role = user.getRole();
-        if (role.equals("client") || role.equals("manager")) {
-            isRoleValid = true;
+        if (!role.equals("client") && !role.equals("manager")) {
+            throw new AddUserRoleIsInvalidError();
         }
     }
 
-    private void validateUsername() {
+    private void validateUsername() throws Exception {
         String username = user.getUsername();
         String regex = "^[^!@#$%^&*()+=\\[\\]{};:'\"\\\\|,.<>/?~`]+$";
-        isUsernameValid =  username.matches(regex);
-    }
-
-    private void validateEmail() {
-        String email = user.getEmail();
-        String regexEmailPattern = "^(.+)@(\\S+)$";
-        isEmailValid = email.matches(regexEmailPattern);
-    }
-
-    private void validateAddress() {
-        String address = user.getAddress();
-        if (address.contains("city") && address.contains("country")) {
-            isAddressValid = true;
+        if(!username.matches(regex)) {
+            throw new AddUserUsernameFormatIsWrongError();
         }
     }
+
+    private void validateEmail() throws Exception {
+        String email = user.getEmail();
+        String regexEmailPattern = "^(.+)@(\\S+)$";
+
+        if (!email.matches(regexEmailPattern)) {
+            throw new AddUserEmailFormatIsWrongError();
+        }
+    }
+
+    private void validateUserDoesNotExist(HashSet<String> usernames) throws Exception {
+        if(usernames.contains(user.getUsername())) {
+            throw new AddUserDuplicateUsernameError();
+        }
+    }
+
+    private void validateEmailDoesNotExist(HashSet<String> emails) throws Exception {
+        if(emails.contains(user.getEmail())) {
+            throw new AddUserDuplicateEmailError();
+        }
+    }
+
+// This is not a good validation
+//    private void validateAddress() {
+//        String address = user.getAddress();
+//        if (address.contains("city") && address.contains("country")) {
+//            isAddressValid = true;
+//        }
+//    }
 }
