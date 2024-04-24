@@ -15,7 +15,7 @@ public class TableReservation {
     }
 
     public void run() {
-        System.out.println("Welcome!");
+        System.out.println("Welcome to TableReservation application!");
         System.out.println();
 
         while(isRunning) {

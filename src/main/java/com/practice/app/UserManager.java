@@ -11,22 +11,22 @@ public class UserManager {
 
     public UserManager() {
         this.users = new ArrayList<>();
+
         this.usernames = new HashSet<>();
         this.emails = new HashSet<>();
 
     }
 
-    public void addUser(String role, String username, String password, String email, String address) {
-        User newUser = new User(role, username, password, email, address);
-        UserValidator uv = new UserValidator(newUser);
-        if (uv.isValid() && !usernames.contains(username) && !emails.contains(email)) {
-            users.add(newUser);
-            usernames.add(username);
-            emails.add(email);
-            System.out.println(users.size() + " user have joined TableReservation application");
+    public void addUser(User user) {
+        UserValidator uv = new UserValidator(user);
+        if (uv.isValid() && !usernames.contains(user.getUsername()) && !emails.contains(user.getEmail())) {
+            users.add(user);
+            usernames.add(user.getUsername());
+            emails.add(user.getEmail());
+            System.out.println("Welcome " + user.getUsername() + "! You are now a member of TableReservation. We now have " + users.size() + " users.");
         }
         else {
-            System.out.println(users.size() + " Sorry user is not valid");
+            System.out.println("Something went wrong for adding user.");
         }
     }
 }
