@@ -27,6 +27,9 @@ public class CommandHandler {
             case "addRestaurant":
                 add_restaurant_handler();
                 break;
+            case "addTable":
+                add_table_handler();
+                break;
             default:
                 System.out.println("The command is unknown :( Please try again!");
 
@@ -51,5 +54,10 @@ public class CommandHandler {
     private void add_restaurant_handler() {
         Restaurant restaurant = gson.fromJson(jsonData, Restaurant.class);
         this.ctx.getRestaurantManager().addRestaurant(restaurant);
+    }
+    private void add_table_handler() {
+        Table table = gson.fromJson(jsonData, Table.class);
+        this.ctx.getTableManager().addTable(table);
+        System.out.println("KOSSHER");
     }
 }
