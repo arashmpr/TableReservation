@@ -14,8 +14,8 @@ public class RestaurantManager {
         this.names = new HashSet<>();
     }
 
-    public void addRestaurant(Restaurant restaurant) throws Exception {
-        RestaurantValidator rv = new RestaurantValidator(restaurant);
+    public void addRestaurant(Restaurant restaurant, UserManager userManager) throws Exception {
+        RestaurantValidator rv = new RestaurantValidator(restaurant, userManager);
         rv.validate(names);
 
         restaurants.add(restaurant);

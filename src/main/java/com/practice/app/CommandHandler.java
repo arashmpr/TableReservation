@@ -66,7 +66,7 @@ public class CommandHandler {
     private void addRestaurantHandler() {
         try {
             Restaurant restaurant = gson.fromJson(jsonData, Restaurant.class);
-            this.ctx.getRestaurantManager().addRestaurant(restaurant);
+            this.ctx.getRestaurantManager().addRestaurant(restaurant, ctx.getUserManager());
 
             Response res = new Response(SUCCESS_RES, ADDRESTAURANT_SUCCESS_DATA);
             System.out.println(gson.toJson(res));
