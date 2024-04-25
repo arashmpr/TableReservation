@@ -12,6 +12,5 @@ public class RestaurantManager {
 
     public void addRestaurant(Restaurant restaurant) {
         restaurants.add(restaurant);
-        System.out.println(restaurants.size() + " restaurant is added to this, happy");
     }
 }

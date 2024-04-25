@@ -26,7 +26,7 @@ public class TableReservation {
             }
             else {
                 CommandHandler commandHandler = new CommandHandler(ctx, cmd);
-                commandHandler.handle_command();
+                commandHandler.handleCommand();
             }
         }
     }
