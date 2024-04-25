@@ -16,7 +16,7 @@ public class UserValidator {
         validateUsername();
         validateEmail();
         validateAddress();
-        validateUserDoesNotExist(usernames);
+        validateUsernameDoesNotExist(usernames);
         validateEmailDoesNotExist(emails);
     }
 
@@ -53,7 +53,7 @@ public class UserValidator {
         }
     }
 
-    private void validateUserDoesNotExist(HashSet<String> usernames) throws Exception {
+    private void validateUsernameDoesNotExist(HashSet<String> usernames) throws Exception {
         if(usernames.contains(user.getUsername())) {
             throw new AddUserDuplicateUsernameError();
         }
