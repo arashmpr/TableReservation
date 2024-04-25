@@ -10,16 +10,14 @@ import com.practice.app.Models.Restaurant;
 import com.practice.app.Models.Table;
 import com.practice.app.Models.User;
 
+import static com.practice.app.Commons.Response.FAILURE_RES;
+import static com.practice.app.Commons.Response.SUCCESS_RES;
+import static com.practice.app.Commons.RestaurantResponse.ADDRESTAURANT_SUCCESS_DATA;
+import static com.practice.app.Commons.TableResponse.ADDTABLE_SUCCESS_DATA;
+import static com.practice.app.Commons.UserResponse.ADDUSER_SUCCESS_DATA;
+
 public class CommandHandler {
     private static final String SPACE=" ";
-
-    private static final boolean SUCCESS_RES = true;
-    private static final boolean FAILURE_RES = false;
-
-    private static final String ADDUSER_SUCCESS_DATA = "User added successfully";
-    private static final String ADDRESTAURANT_SUCCESS_DATA = "Restaurant added successfully";
-    private static final String ADDTABLE_SUCCESS_DATA = "Table added successfully";
-
     private static final int COMMAND_IDX=0;
     private static final int JSON_DATA_IDX=1;
     private static final int MAX_ARGS_COUNT=2;
