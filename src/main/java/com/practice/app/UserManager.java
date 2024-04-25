@@ -34,4 +34,13 @@ public class UserManager {
         usernames.add(user.getUsername());
         emails.add(user.getEmail());
     }
+
+    public User getUserByUsername(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }

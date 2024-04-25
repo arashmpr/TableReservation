@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.time.LocalTime;
+
 
 @Getter
 @Setter
@@ -14,8 +16,8 @@ public class Restaurant {
     private String name;
     private String managerUsername;
     private String type;
-    private int startTime;
-    private int endTime;
+    private String startTime;
+    private String endTime;
     private String description;
     private Address address;
 }
