@@ -15,6 +15,7 @@ public class UserValidator {
         validateRole();
         validateUsername();
         validateEmail();
+        validateAddress();
         validateUserDoesNotExist(usernames);
         validateEmailDoesNotExist(emails);
     }
@@ -40,6 +41,15 @@ public class UserValidator {
 
         if (!email.matches(regexEmailPattern)) {
             throw new AddUserEmailFormatIsWrongError();
+        }
+    }
+
+    private void validateAddress() throws Exception {
+        if (user.getAddress().getCity() == null || user.getAddress().getCity().isEmpty()) {
+            throw new AddUserAddressHasNoCityError();
+        }
+        if (user.getAddress().getCountry() == null || user.getAddress().getCountry().isEmpty()) {
+            throw new AddUserAddressHasNoCountryError();
         }
     }
 

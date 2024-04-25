@@ -17,5 +17,5 @@ public class Restaurant {
     private int startTime;
     private int endTime;
     private String description;
-    private String address;
+    private Address address;
 }

@@ -10,12 +10,8 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private String role;
-    private String username;
-    private String password;
-    private String email;
-    private Address address;
+public class Address {
+    private String country;
+    private String city;
+    private String street;
 }
-
-
