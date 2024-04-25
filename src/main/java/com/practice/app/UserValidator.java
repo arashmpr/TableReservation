@@ -17,7 +17,6 @@ public class UserValidator {
         validateEmail();
         validateUserDoesNotExist(usernames);
         validateEmailDoesNotExist(emails);
-//        validateAddress();
     }
 
     private void validateRole() throws Exception {
@@ -55,12 +54,4 @@ public class UserValidator {
             throw new AddUserDuplicateEmailError();
         }
     }
-
-// This is not a good validation
-//    private void validateAddress() {
-//        String address = user.getAddress();
-//        if (address.contains("city") && address.contains("country")) {
-//            isAddressValid = true;
-//        }
-//    }
 }
