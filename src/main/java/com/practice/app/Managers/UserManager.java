@@ -1,9 +1,11 @@
-package com.practice.app;
+package com.practice.app.Managers;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import com.practice.app.Models.User;
+import com.practice.app.Validators.UserValidator;
 import lombok.Getter;
 import lombok.Setter;
 

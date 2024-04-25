@@ -1,9 +1,11 @@
 package com.practice.app;
 
-import com.practice.app.exceptions.AddUserDuplicateEmailError;
-import com.practice.app.exceptions.AddUserDuplicateUsernameError;
-import com.practice.app.exceptions.AddUserEmailFormatIsWrongError;
-import com.practice.app.exceptions.AddUserRoleIsInvalidError;
+import com.practice.app.Exceptions.UserExceptions.AddUserDuplicateEmailError;
+import com.practice.app.Exceptions.UserExceptions.AddUserDuplicateUsernameError;
+import com.practice.app.Exceptions.UserExceptions.AddUserEmailFormatIsWrongError;
+import com.practice.app.Exceptions.UserExceptions.AddUserRoleIsInvalidError;
+import com.practice.app.Managers.UserManager;
+import com.practice.app.Models.User;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

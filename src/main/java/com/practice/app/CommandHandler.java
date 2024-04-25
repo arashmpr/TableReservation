@@ -2,6 +2,13 @@ package com.practice.app;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.practice.app.Managers.RestaurantManager;
+import com.practice.app.Managers.TableManager;
+import com.practice.app.Managers.UserManager;
+import com.practice.app.Models.Response;
+import com.practice.app.Models.Restaurant;
+import com.practice.app.Models.Table;
+import com.practice.app.Models.User;
 
 public class CommandHandler {
     private static final String SPACE=" ";

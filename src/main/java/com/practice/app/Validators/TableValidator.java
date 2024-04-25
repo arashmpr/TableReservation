@@ -1,6 +1,9 @@
-package com.practice.app;
+package com.practice.app.Validators;
 
-import com.practice.app.exceptions.AddTableDuplicateTableNumberError;
+import com.practice.app.Exceptions.TableExceptions.AddTableDuplicateTableNumberError;
+import com.practice.app.Managers.RestaurantManager;
+import com.practice.app.Managers.TableManager;
+import com.practice.app.Models.Table;
 
 public class TableValidator {
     private Table table;

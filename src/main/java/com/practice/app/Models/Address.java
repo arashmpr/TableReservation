@@ -1,4 +1,4 @@
-package com.practice.app;
+package com.practice.app.Models;
 
 import lombok.Getter;
 import lombok.Setter;

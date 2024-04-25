@@ -1,6 +1,7 @@
-package com.practice.app;
+package com.practice.app.Validators;
 
-import com.practice.app.exceptions.*;
+import com.practice.app.Exceptions.UserExceptions.*;
+import com.practice.app.Models.User;
 
 import java.util.HashSet;
 

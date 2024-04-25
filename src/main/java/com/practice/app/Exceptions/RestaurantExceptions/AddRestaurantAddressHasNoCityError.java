@@ -1,4 +1,4 @@
-package com.practice.app.exceptions;
+package com.practice.app.Exceptions.RestaurantExceptions;
 
 public class AddRestaurantAddressHasNoCityError extends Exception {
     private static final String errorDescription = "Exception::AddRestaurant:Address has no city.";

@@ -1,4 +1,7 @@
-package com.practice.app;
+package com.practice.app.Managers;
+
+import com.practice.app.Models.Restaurant;
+import com.practice.app.Validators.RestaurantValidator;
 
 import java.util.ArrayList;
 import java.util.HashSet;

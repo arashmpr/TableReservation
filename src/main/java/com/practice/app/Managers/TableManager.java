@@ -1,4 +1,7 @@
-package com.practice.app;
+package com.practice.app.Managers;
+
+import com.practice.app.Models.Table;
+import com.practice.app.Validators.TableValidator;
 
 import java.util.ArrayList;
 import java.util.HashSet;

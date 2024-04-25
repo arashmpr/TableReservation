@@ -1,11 +1,9 @@
-package com.practice.app;
+package com.practice.app.Models;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
-import java.time.LocalTime;
 
 
 @Getter

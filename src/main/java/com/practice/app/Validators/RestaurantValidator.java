@@ -1,6 +1,10 @@
-package com.practice.app;
+package com.practice.app.Validators;
 
-import com.practice.app.exceptions.*;
+import com.practice.app.Exceptions.RestaurantExceptions.*;
+import com.practice.app.Managers.RestaurantManager;
+import com.practice.app.Managers.UserManager;
+import com.practice.app.Models.Restaurant;
+import com.practice.app.Models.User;
 
 public class RestaurantValidator {
     private static final String MANAGER_ROLE="manager";
