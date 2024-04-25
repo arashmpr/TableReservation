@@ -16,14 +16,17 @@ public class CommandHandler {
     private static final int COMMAND_IDX=0;
     private static final int JSON_DATA_IDX=1;
     private static final int MAX_ARGS_COUNT=2;
-    private static Gson gson = new GsonBuilder().create();
-
-    private Context ctx;
+    private static final Gson gson = new GsonBuilder().create();
     private String commandType;
     private String jsonData;
+    private final UserManager userManager;
+    private final RestaurantManager restaurantManager;
+    private final TableManager tableManager;
 
-    public CommandHandler(Context ctx, String cmd) {
-        this.ctx = ctx;
+    public CommandHandler(String cmd) {
+        this.userManager = UserManager.getInstance();
+        this.restaurantManager = RestaurantManager.getInstance();
+        this.tableManager = TableManager.getInstance();
         parse(cmd);
     }
 
@@ -53,7 +56,7 @@ public class CommandHandler {
     private void addUserHandler() {
         try {
             User user = gson.fromJson(jsonData, User.class);
-            this.ctx.getUserManager().addUser(user);
+            userManager.addUser(user);
 
             Response res = new Response(SUCCESS_RES, ADDUSER_SUCCESS_DATA);
             System.out.println(gson.toJson(res));
@@ -66,7 +69,7 @@ public class CommandHandler {
     private void addRestaurantHandler() {
         try {
             Restaurant restaurant = gson.fromJson(jsonData, Restaurant.class);
-            this.ctx.getRestaurantManager().addRestaurant(restaurant, ctx.getUserManager());
+            restaurantManager.addRestaurant(restaurant);
 
             Response res = new Response(SUCCESS_RES, ADDRESTAURANT_SUCCESS_DATA);
             System.out.println(gson.toJson(res));
@@ -78,7 +81,7 @@ public class CommandHandler {
     private void addTableHandler() {
         try {
             Table table = gson.fromJson(jsonData, Table.class);
-            this.ctx.getTableManager().addTable(table);
+            tableManager.addTable(table);
 
             Response res = new Response(SUCCESS_RES, ADDTABLE_SUCCESS_DATA);
             System.out.println(gson.toJson(res));

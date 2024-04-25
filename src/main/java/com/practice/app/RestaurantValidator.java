@@ -3,24 +3,24 @@ package com.practice.app;
 import com.practice.app.exceptions.AddRestaurantDuplicateNameError;
 import com.practice.app.exceptions.AddRestaurantUserManagerDoesNotExistError;
 
-import java.util.HashSet;
-
 public class RestaurantValidator {
     private Restaurant restaurant;
+    private RestaurantManager restaurantManager;
     private UserManager userManager;
 
-    public RestaurantValidator(Restaurant restaurant, UserManager userManager) {
+    public RestaurantValidator(Restaurant restaurant) {
         this.restaurant = restaurant;
-        this.userManager = userManager;
+        this.restaurantManager = RestaurantManager.getInstance();
+        this.userManager = UserManager.getInstance();
     }
 
-    public void validate(HashSet<String> names) throws Exception{
-        validateNameDoesNotExist(names);
+    public void validate() throws Exception{
+        validateNameDoesNotExist();
         validateUserManagerExists();
     }
 
-    private void validateNameDoesNotExist(HashSet<String> names) throws Exception {
-        if (names.contains(restaurant.getName())) {
+    private void validateNameDoesNotExist() throws Exception {
+        if (restaurantManager.getNames().contains(restaurant.getName())) {
             throw new AddRestaurantDuplicateNameError();
         }
     }

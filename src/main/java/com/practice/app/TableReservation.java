@@ -5,11 +5,9 @@ import java.util.Scanner;
 public class TableReservation {
 
     private boolean isRunning;
-    private Context ctx;
     private Scanner scanner;
 
-    public TableReservation(Context ctx) {
-        this.ctx = ctx;
+    public TableReservation() {
         this.isRunning = true;
         this.scanner = new Scanner(System.in);
     }
@@ -25,7 +23,7 @@ public class TableReservation {
                 isRunning = false;
             }
             else {
-                CommandHandler commandHandler = new CommandHandler(ctx, cmd);
+                CommandHandler commandHandler = new CommandHandler(cmd);
                 commandHandler.handleCommand();
             }
         }

@@ -11,14 +11,19 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserManager {
+    private static final UserManager INSTANCE = new UserManager();
     private List<User> users;
     private HashSet<String> usernames;
     private HashSet<String> emails;
 
-    public UserManager() {
+    private UserManager() {
         this.users = new ArrayList<>();
         this.usernames = new HashSet<>();
         this.emails = new HashSet<>();
+    }
+
+    public static UserManager getInstance() {
+        return INSTANCE;
     }
 
     public void addUser(User user) throws Exception {

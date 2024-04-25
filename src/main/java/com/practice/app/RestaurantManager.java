@@ -5,20 +5,29 @@ import java.util.HashSet;
 import java.util.List;
 
 public class RestaurantManager {
+    private static final RestaurantManager INSTANCE = new RestaurantManager();
     private List<Restaurant> restaurants;
 
     private HashSet<String> names;
-
-    public RestaurantManager() {
+    private RestaurantManager() {
         this.restaurants = new ArrayList<>();
         this.names = new HashSet<>();
     }
 
-    public void addRestaurant(Restaurant restaurant, UserManager userManager) throws Exception {
-        RestaurantValidator rv = new RestaurantValidator(restaurant, userManager);
-        rv.validate(names);
+    public static RestaurantManager getInstance() {
+        return INSTANCE;
+    }
+
+    public void addRestaurant(Restaurant restaurant) throws Exception {
+
+        RestaurantValidator rv = new RestaurantValidator(restaurant);
+        rv.validate();
 
         restaurants.add(restaurant);
         names.add(restaurant.getName());
+    }
+
+    public HashSet<String> getNames() {
+        return names;
     }
 }
